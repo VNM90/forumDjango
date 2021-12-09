@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div>
+    <p>Reset password</p>
+    <p>Avatar image</p>
+    <p>Delete account</p>
+    <p>{{forum_user.name}}</p>
+    <p>{{forum_user.surname}}</p>
+    {% if forum_user.profile_pic %}
+      <img src="{{ forum_user.profile_pic.url }}">
+    {% else %}
+    <p>dupa</p>
+    <img src="{% static 'media/images/default-profile-480x480.png' %}">
+    {% endif %}
+    <button><a href="{% url 'homeView' %}">Go back</a></button>
+</div>
+{% endblock %}

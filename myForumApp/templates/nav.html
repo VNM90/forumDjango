@@ -1,0 +1,20 @@
+{% extends 'home.html' %} 
+{% block navigation %} 
+<nav class="navigation">
+    <ul>
+      <li>LOGO</li>
+      {% if user.is_authenticated %}
+      <li>Hello, {{user.username}}</li>
+      {% else %}
+      <li>Hi, anonymous</li>
+      {% endif%} {% if user.is_authenticated %}
+      <li><a href="{% url 'settingsView' %}">Settings</a></li>
+      <li><a href="{% url 'createView' %}">Add Question</a></li>
+      <li><a href="{% url 'logoutView' %}">Logout</a></li>
+      {% else %}
+      <li><a href="{% url 'loginView' %}">Login</a></li>
+      <li><a href="{% url 'registerView' %}">Register</a></li>
+      {% endif%}
+    </ul>
+  </nav>
+{% endblock navigation %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% block content %}
+<p>{{question.title}}</p>
+<p>{{question.description}}</p>
+<p>{{question.date}}</p>
+<p>{{question.category}}</p>
+<button><a href="{% url 'homeView' %}">Go back</a></button>
+{% endblock %}

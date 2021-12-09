@@ -1,0 +1,15 @@
+{% extends 'home.html' %} 
+{% block category %} 
+{% if category_question %} 
+{% for question in category_question %}
+<p><a href="{% url 'questionView' question.id %}">{{question.title}}</a></p>
+<p>{{question.date}}</p>
+{% if user.is_authenticated and request.user == question.user %}
+<p><a href="{% url 'updateView' question.id %}"><ion-icon name="hammer"></ion-icon></a></p> 
+<p><a href="{% url 'deleteView' question.id %}"><ion-icon name="trash"></ion-icon></a></p>
+{% endif %} 
+{% endfor %}
+{% else %}
+<p>No questions in this category</p> 
+{% endif %} 
+{% endblock category %}
